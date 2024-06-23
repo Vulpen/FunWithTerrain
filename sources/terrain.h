@@ -4,6 +4,10 @@
 #include "height_data.h"
 #include <cstdio>
 
+/**
+ * Our abstract class of terrain defining high-level access to save and load terrain data.
+ * We'll be creating multiple sub-classes that go about handling terrain in various ways, how exciting!
+ */
 class terrain {
     protected:
         SHEIGHT_DATA heightData;
@@ -28,7 +32,7 @@ class terrain {
 
     inline float GetScaledHeightAtPoint(int x, int z) {return (heightData.data[(z * Size) + x]);}
 
-    terrain() {this->LoadHeightMap("test.txt\0", 4);}
+    terrain() {this->LoadHeightMap("test.txt\0", 20);}
     ~terrain() {this->UnloadHeightMap();}
 };
 

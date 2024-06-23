@@ -44,6 +44,6 @@ void BruteForceTerrain::Render( void ) {
             vectors[ind+1].y = GetScaledHeightAtPoint(x,z+1) - 48;
             vectors[ind+1].z = z+1;
         }
-        //DrawTriangleStrip3D(vectors, (vectSize * 2), MAROON);
+        DrawTriangleStrip3D(vectors, (vectSize * 2), MAROON);
     }
 }
