@@ -3,7 +3,7 @@
 MeshTerrain::MeshTerrain() {
     // Generate Mesh stuff here i guess?
     
-    LoadHeightMap("test.txt\0", TERRAIN_WIDTH);
+    LoadHeightMap("heightgen.txt\0", TERRAIN_WIDTH);
 
     TraceLog(LOG_INFO, "Generating terrain mesh...");
     terrainMesh = GenerateTerrainMesh();
@@ -24,6 +24,7 @@ Mesh MeshTerrain::GenerateTerrainMesh() {
     Size = TERRAIN_WIDTH;
     // Winding order matters without the normals array!
     mesh.triangleCount = (size - 1) * (size - 1) * 2;
+    //mesh.triangleCount = (size * size) - 1;
     mesh.vertexCount = mesh.triangleCount * 3;
     mesh.vertices = (float *)MemAlloc(mesh.vertexCount*3*sizeof(float));    // 3 vertices, 3 coordinates each (x, y, z)
     //mesh.texcoords = (float *)MemAlloc(mesh.vertexCount*2*sizeof(float));   // 3 vertices, 2 coordinates each (x, y)

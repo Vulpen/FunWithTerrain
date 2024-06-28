@@ -102,7 +102,7 @@ void InitGameplayScreen(void)
     // TODO: Initialize GAMEPLAY screen variables here!
     framesCounter = 0;
     finishScreen = 0;
-    sampleTerrain = new BruteForceTerrain();
+    //sampleTerrain = new BruteForceTerrain();
     otherTerrain = new MeshTerrain();
     mdl = LoadModelFromMesh(GenMeshCustom());
     // cam = new Camera3D;
@@ -138,7 +138,7 @@ void DrawGameplayScreen(void)
     UpdateCamera(&camera, CAMERA_ORBITAL);
     BeginMode3D(camera);
         DrawCube({0,0,0}, 0.3, 0.3, 0.3, BLACK);
-        sampleTerrain->Render();
+        //sampleTerrain->Render();
         otherTerrain->Render();
         //DrawModel(mdl, {0.0f,0.0f,0.0f}, 1.0f, WHITE);
     EndMode3D();
