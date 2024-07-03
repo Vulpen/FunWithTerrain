@@ -22,7 +22,7 @@ class terrain {
     bool SaveHeightMap( char* filename );
     bool UnloadHeightMap( void );
 
-    inline void SetHeightScale (float scale);
+    void SetHeightScale (float scale);
 
     inline void SetHeightAtPoint(unsigned char height, int x, int z);
 
@@ -30,7 +30,7 @@ class terrain {
         return (heightData.data[(z * Size) + x]);
     }
 
-    inline float GetScaledHeightAtPoint(int x, int z) {return (heightData.data[(z * Size) + x]);}
+    inline float GetScaledHeightAtPoint(int x, int z) {return ((float)heightData.data[(z * Size) + x]) * heightScale;}
 
     terrain() {this->LoadHeightMap("test.txt\0", 20);}
     ~terrain() {this->UnloadHeightMap();}

@@ -8,7 +8,7 @@
 
 // inline float terrain::GetScaledHeightAtPoint(int x, int z) {return (heightData.data[(z * Size) + x]);}
 
-inline void terrain::SetHeightScale (float scale) {
+void terrain::SetHeightScale (float scale) {
     heightScale = scale;
 }
 
@@ -69,11 +69,14 @@ bool terrain::LoadHeightMap(char *filename, int size) {
     if(heightData.data)
         UnloadHeightMap();
 
-    heightData.data = new unsigned char [size * size];
+    heightData.data = new unsigned int [size * size];
 
     for (int x = 0; x < size; x++) {
         for (int y = 0; y < size; y++) {
-            inFile >> heightData.data[y * size + x];
+            int number;
+            inFile >> number;
+            TraceLog(LOG_DEBUG, "Loading %u from file");
+            heightData.data[y * size + x] = number;
         }
     }
 

@@ -2,7 +2,7 @@
 #define HEIGHT_DATA_H
 
 struct SHEIGHT_DATA {
-    unsigned char *data;    // m_pucData
+    unsigned int *data;    // m_pucData
     int size;   // m_iSize
 };
 
